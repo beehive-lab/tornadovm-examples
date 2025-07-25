@@ -281,7 +281,7 @@ public class MatrixMultiplication {
                     .task("mxm", Multiplication::mxmTornadoVM, a, b, c, a.getNumRows()) //
                     .transferToHost(DataTransferMode.EVERY_EXECUTION, c);
             TornadoExecutionPlan executionPlan = new TornadoExecutionPlan(taskGraph.snapshot());
-            executionPlan.withWarmUp().withDevice(TornadoExecutionPlan.getDevice(0, 0));
+            executionPlan.withPreCompilation().withDevice(TornadoExecutionPlan.getDevice(0, 0));
             return executionPlan;
         }
 

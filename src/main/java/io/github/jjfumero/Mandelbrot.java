@@ -166,7 +166,7 @@ public class Mandelbrot {
                 WorkerGrid workerGrid = new WorkerGrid2D(size, size);
                 workerGrid.setLocalWork(16, 16, 1);
                 grid = new GridScheduler();
-                grid.setWorkerGrid("fractal.mandelbrot", workerGrid);
+                grid.addWorkerGrid("fractal.mandelbrot", workerGrid);
                 KernelContext context = new KernelContext();
 
                 ts = new TaskGraph("fractal") //

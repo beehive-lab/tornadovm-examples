@@ -116,7 +116,7 @@ public class HelloTornado {
                 .execute();
 
         // 5. Enable warmup
-        executionPlan.withWarmUp()
+        executionPlan.withPreCompilation()
                 .withoutProfiler()
                 .execute();
 

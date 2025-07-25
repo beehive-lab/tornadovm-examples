@@ -143,9 +143,9 @@ public class BlurFilter {
             // This version might run slower, since thread block size can influence performance.
             // TornadoVM implements a heuristic for thread block selection (available for loop-parallel API)
             WorkerGrid2D worker = new WorkerGrid2D(w, h);
-            grid.setWorkerGrid("blur.red", worker);
-            grid.setWorkerGrid("blur.green", worker);
-            grid.setWorkerGrid("blur.blue", worker);
+            grid.addWorkerGrid("blur.red", worker);
+            grid.addWorkerGrid("blur.green", worker);
+            grid.addWorkerGrid("blur.blue", worker);
 
             parallelFilter = new TaskGraph("blur") //
                     .transferToDevice(DataTransferMode.FIRST_EXECUTION, redChannel, greenChannel, blueChannel, filter) //
